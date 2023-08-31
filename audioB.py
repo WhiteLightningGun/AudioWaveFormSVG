@@ -1,6 +1,5 @@
 import wave 
 import numpy as np
-#import matplotlib.pyplot as plt
 import drawsvg as draw
 
 wav_obj = wave.open('Aragainz.wav', 'rb')
@@ -32,36 +31,29 @@ normalisation_factor = 80/max(result)
 
 normed_result = [i*normalisation_factor for i in result]
 
-
-"""plt.figure(figsize=(30, 5))
-plt.bar([i for i in range(len(result))], normed_result)
-plt.ylim([0,120])
-plt.show()"""
-
-max_height = 80
-
 d = draw.Drawing(300, 80, origin=(0,0))
 d2 = draw.Drawing(300, 80, origin=(0,0))
 
 width = 5
 gap = 0
 x = 0
+max_height = 80
 
 for i in normed_result:
     val = round(i)
     d.append(
-         draw.Rectangle(x, (max_height - val)/2, width, val, fill='#245b5a')
+         draw.Rectangle(x, (max_height - val)/2, width, 0.8*val, fill='#245b5a')
 
     )
     d2.append(
-         draw.Rectangle(x, (max_height - val)/2, width, val, fill='#FF0078')
+         draw.Rectangle(x, (max_height - val)/2, width, 0.8*val, fill='#FF0078')
 
     )
 
     x += width + gap
 
 
-d.save_svg('wave-grey2.svg')
-d2.save_svg('wave-pink2.svg')
+d.save_svg('wave-grey3.svg')
+d2.save_svg('wave-pink3.svg')
 
 print("finished")
