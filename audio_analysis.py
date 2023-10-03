@@ -23,7 +23,7 @@ result = [sum(i)/len(i) for i in lc_subarrays]
 normalisation_factor = Y_HEIGHT/max(result)
 normed_result = [i*normalisation_factor for i in result]
 
-# Drawing the bar graphs 
+# Drawing the bar graphs to an svg file
 
 d = draw.Drawing(X_WIDTH, Y_HEIGHT, origin=(0,0))
 d2 = draw.Drawing(X_WIDTH, Y_HEIGHT, origin=(0,0))
